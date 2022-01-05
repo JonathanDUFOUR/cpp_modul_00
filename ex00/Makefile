@@ -6,15 +6,15 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 18:39:33 by jodufour          #+#    #+#              #
-#    Updated: 2021/11/14 15:13:39 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/05 05:04:06 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CC			=	c++ -c -o
-LINK		=	c++ -o
+CXX			=	c++ -c
+LINK		=	c++
 MKDIR		=	mkdir -p
 RM			=	rm -rf
 
@@ -28,8 +28,6 @@ NAME		=	megaphone
 #######################################
 SRC_DIR		=	./
 OBJ_DIR		=	objs/
-INC_DIR		=	
-PRV_DIR		=	
 
 #######################################
 #              LIBRARIES              #
@@ -65,23 +63,27 @@ endif
 #######################################
 #                RULES                #
 #######################################
-${NAME}:	${OBJ}
-	${LINK} $@ $^ ${LDFLAGS}
+${NAME}: ${OBJ}
+	${LINK} ${OBJ} ${LDFLAGS} ${OUTPUT_OPTION}
 
-all:	${NAME}
+all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o:	${SRC_DIR}%.cpp
+${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	@${MKDIR} ${@D}
-	${CC} $@ ${CPPFLAGS} $<
+	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
-	${RM} ${OBJ_DIR}
+	${RM} ${OBJ_DIR} ${NAME}
 
 fclean:
 	${RM} ${OBJ_DIR} ${NAME}
 
-re:	fclean all
+re: clean all
 
-.PHONY:	all clean fclean re coffee norm
+fre: fclean all
+
+-include /home/jodufour/Templates/mk_files/coffee.mk
+
+.PHONY:	all clean fclean re fre

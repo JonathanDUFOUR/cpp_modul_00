@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 01:50:24 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 04:03:59 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/05 05:04:23 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ NAME			=	tests.out
 #######################################
 SRC_DIR			=	./
 OBJ_DIR			=	objs/
-PRV_DIR			=	./
 
 #######################################
 #              LIBRARIES              #
@@ -65,23 +64,27 @@ endif
 #######################################
 #                RULES                #
 #######################################
-${NAME}:	${OBJ}
-	${LINK} $^ ${LDFLAGS} ${OUTPUT_OPTION}
+${NAME}: ${OBJ}
+	${LINK} ${OBJ} ${LDFLAGS} ${OUTPUT_OPTION}
 
-all:	${NAME}
+all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o:	${SRC_DIR}%.cpp
+${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	@${MKDIR} ${@D}
 	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
-	${RM} ${OBJ_DIR}
+	${RM} ${OBJ_DIR} ${NAME}
 
 fclean:
 	${RM} ${OBJ_DIR} ${NAME}
 
-re:	fclean all
+re: clean all
 
-.PHONY:	all clean fclean re
+fre: fclean all
+
+-include /home/jodufour/Templates/mk_files/coffee.mk
+
+.PHONY:	all clean fclean re fre
