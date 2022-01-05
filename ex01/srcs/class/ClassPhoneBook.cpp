@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 04:12:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/05 05:12:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <string>
 #include <iomanip>
 #include "colors.hpp"
