@@ -6,10 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 18:48:52 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 00:15:52 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/05 07:08:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include <iostream>
 
 static std::string	str_toupper(std::string str)
@@ -18,7 +19,7 @@ static std::string	str_toupper(std::string str)
 
 	for (iter = str.begin() ; *iter ; ++iter)
 		*iter = toupper(*iter);
-	return (str);
+	return str;
 }
 
 int main(int const ac, char const **av)
@@ -31,5 +32,5 @@ int main(int const ac, char const **av)
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	std::cout << std::endl;
-	return (0);
+	return EXIT_SUCCESS;
 }

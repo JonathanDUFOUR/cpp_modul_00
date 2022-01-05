@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 02:13:27 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 04:01:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/05 07:27:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,29 +78,33 @@ Account::~Account(void)
 	<< std::endl;
 }
 
-// ************************************************************************** //
-//                               Public Methods                               //
-// ************************************************************************** //
+// ************************************************************************* //
+//                                 Accessors                                 //
+// ************************************************************************* //
 
 int	Account::getNbAccounts(void)
 {
-	return (Account::_nbAccounts);
+	return Account::_nbAccounts;
 }
 
 int	Account::getTotalAmount(void)
 {
-	return (Account::_totalAmount);
+	return Account::_totalAmount;
 }
 
 int	Account::getNbDeposits(void)
 {
-	return (Account::_totalNbDeposits);
+	return Account::_totalNbDeposits;
 }
 
 int	Account::getNbWithdrawals(void)
 {
-	return (Account::_totalNbWithdrawals);
+	return Account::_totalNbWithdrawals;
 }
+
+// ************************************************************************** //
+//                               Public Methods                               //
+// ************************************************************************** //
 
 void	Account::makeDeposit(int deposit)
 {
@@ -143,7 +147,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	if (withdrawal > this->_amount)
 	{
 		std::cout << "refused" << std::endl;
-		return (false);
+		return false;
 	}
 	this->_amount -= withdrawal;
 	++this->_nbWithdrawals;
@@ -158,12 +162,12 @@ bool	Account::makeWithdrawal(int withdrawal)
 	<< "nb_withdrawals:"
 	<< this->_nbWithdrawals
 	<< std::endl;
-	return (true);
+	return true;
 }
 
 int	Account::checkAmount(void) const
 {
-	return (this->_amount);
+	return this->_amount;
 }
 
 void	Account::displayStatus(void) const

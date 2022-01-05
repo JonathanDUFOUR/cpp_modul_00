@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 05:12:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/05 07:24:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,22 @@
 #include "colors.hpp"
 #include "class/ClassPhoneBook.hpp"
 
-//	Constructors
+// ************************************************************************** //
+//                                Constructors                                //
+// ************************************************************************** //
+
 PhoneBook::PhoneBook(void) {}
 
-//	Destructors
+// ************************************************************************* //
+//                                Destructors                                //
+// ************************************************************************* //
+
 PhoneBook::~PhoneBook(void) {}
 
-//	Public Methods
+// ************************************************************************** //
+//                               Public Methods                               //
+// ************************************************************************** //
+
 int	PhoneBook::addContact(void)
 {
 	static int	i = 0;
@@ -73,13 +82,16 @@ int	PhoneBook::searchContact(void)
 	if (idx < 0 || 7 < idx || this->contacts[idx].getFirstName().empty())
 	{
 		std::cerr << RED << "Error 404" << RESET << std::endl;
-		return (EXIT_SUCCESS);
+		return EXIT_SUCCESS;
 	}
 	this->contacts[idx].print();
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
 
-//	Private Methods
+// ************************************************************************* //
+//                              Private Methods                              //
+// ************************************************************************* //
+
 int		PhoneBook::stoi(std::string str)
 {
 	std::string::const_iterator	iter = str.begin();
@@ -93,7 +105,7 @@ int		PhoneBook::stoi(std::string str)
 		sign = (-(*iter++ == '-') | 1);
 	for ( ; std::isdigit(*iter) ; ++iter)
 		output = output * 10 + *iter - '0';
-	return (output * sign);
+	return output * sign;
 }
 
 void	PhoneBook::printBook(void)
@@ -127,7 +139,7 @@ std::string	PhoneBook::truncate(std::string str, std::size_t width)
 	if (str.length() > width)
 	{
 		str[9] = '.';
-		return (str.substr(0, 10));
+		return str.substr(0, 10);
 	}
-	return (str);
+	return str;
 }

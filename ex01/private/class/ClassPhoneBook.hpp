@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:40:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 04:49:20 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/05 07:22:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 	// Destructors
 	~PhoneBook(void);
 
-	//	Public Methods
+	// Methods
 	int			addContact(void);
 	int			searchContact(void);
 };
