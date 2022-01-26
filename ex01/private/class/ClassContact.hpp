@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:22:02 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ public:
 	std::string	getPhoneNumber(void) const;
 	std::string	getDarkestSecret(void) const;
 
-	// Methods
+	// Member functions
 	void		printFirstName(void) const;
 	void		printLastName(void) const;
 	void		printNickname(void) const;

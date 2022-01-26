@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:40:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:22:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PhoneBook
 private:
 	Contact contacts[8];
 
-	// Methods
+	// Member functions
 	int			stoi(std::string str);
 
 	void		printBook(void);
@@ -38,7 +38,7 @@ public:
 	// Destructors
 	~PhoneBook(void);
 
-	// Methods
+	// Member functions
 	int			addContact(void);
 	int			searchContact(void);
 };
