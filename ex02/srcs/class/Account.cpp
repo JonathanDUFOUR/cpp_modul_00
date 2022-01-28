@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 02:13:27 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:27:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:36:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
 #include <iomanip>
 #include <iostream>
-#include "Account.hpp"
+#include "class/Account.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //

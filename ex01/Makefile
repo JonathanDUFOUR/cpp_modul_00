@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 19:31:37 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 05:04:16 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/28 20:41:32 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ PRV_DIR		=	private/
 #            SOURCE FILES            #
 ######################################
 SRC			=	\
-				${addprefix class/,		\
-					ClassContact.cpp	\
-					ClassPhoneBook.cpp	\
-				}						\
+				${addprefix class/,	\
+					Contact.cpp		\
+					PhoneBook.cpp	\
+				}					\
 				main.cpp
 
 ######################################

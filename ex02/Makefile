@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 01:50:24 by jodufour          #+#    #+#              #
-#    Updated: 2022/01/05 05:04:23 by jodufour         ###   ########.fr        #
+#    Updated: 2022/01/28 20:42:59 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ NAME			=	tests.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	./
+SRC_DIR			=	srcs/
 OBJ_DIR			=	objs/
+PRV_DIR			=	private/
 
 #######################################
 #              LIBRARIES              #
@@ -37,7 +38,9 @@ OBJ_DIR			=	objs/
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					Account.cpp	\
+					${addprefix class/,	\
+						Account.cpp		\
+					}					\
 					tests.cpp
 
 ######################################
@@ -54,6 +57,7 @@ DEP				=	${OBJ:.o=.d}
 CPPFLAGS		=	-Wall -Wextra -Werror
 CPPFLAGS		+=	-std=c++98
 CPPFLAGS		+=	-MMD -MP
+CPPFLAGS		+=	-I${PRV_DIR}
 
 LDFLAGS			=	
 

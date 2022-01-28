@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 19:32:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:10:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:41:47 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
 #include "colors.hpp"
-#include "class/ClassPhoneBook.hpp"
+#include "class/PhoneBook.hpp"
 
 int	main(void)
 {

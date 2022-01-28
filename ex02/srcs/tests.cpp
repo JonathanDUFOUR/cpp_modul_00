@@ -10,8 +10,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include "Account.hpp"
-
+#include "class/Account.hpp"
 
 int		main( void ) {
 
