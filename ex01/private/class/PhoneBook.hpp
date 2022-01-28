@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassPhoneBook.hpp                                 :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:40:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 19:30:49 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 19:58:48 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLASSPHONEBOOK_HPP
 # define CLASSPHONEBOOK_HPP
 
-# include "class/ClassContact.hpp"
+# include "class/Contact.hpp"
 
 # ifndef WIDTH
 #  define WIDTH	10

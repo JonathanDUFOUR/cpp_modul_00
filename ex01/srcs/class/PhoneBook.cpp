@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassPhoneBook.cpp                                 :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:24:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 19:58:24 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <iomanip>
 #include "colors.hpp"
-#include "class/ClassPhoneBook.hpp"
+#include "class/PhoneBook.hpp"
 
 // ************************************************************************** //
 //                                Constructors                                //
