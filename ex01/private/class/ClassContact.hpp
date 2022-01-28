@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/28 19:28:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 19:45:59 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ public:
 	void	printDarkestSecret(void) const;
 	void	print(void) const;
 
-	bool		isFilled(void) const;
+	bool	isFilled(void) const;
 };
 
 #endif
