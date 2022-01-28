@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/21 19:15:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/01/28 19:28:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ public:
 	~Contact();
 
 	// Accessors
-	void		setFirstName(std::string firstName);
-	void		setLastName(std::string lastName);
-	void		setNickname(std::string nickname);
-	void		setPhoneNumber(std::string phoneNumber);
-	void		setDarkestSecret(std::string darkestSecret);
+	void	setFirstName(std::string firstName);
+	void	setLastName(std::string lastName);
+	void	setNickname(std::string nickname);
+	void	setPhoneNumber(std::string phoneNumber);
+	void	setDarkestSecret(std::string darkestSecret);
 
 	std::string	getFirstName(void) const;
 	std::string	getLastName(void) const;
@@ -52,12 +52,12 @@ public:
 	std::string	getDarkestSecret(void) const;
 
 	// Member functions
-	void		printFirstName(void) const;
-	void		printLastName(void) const;
-	void		printNickname(void) const;
-	void		printPhoneNumber(void) const;
-	void		printDarkestSecret(void) const;
-	void		print(void) const;
+	void	printFirstName(void) const;
+	void	printLastName(void) const;
+	void	printNickname(void) const;
+	void	printPhoneNumber(void) const;
+	void	printDarkestSecret(void) const;
+	void	print(void) const;
 
 	bool		isFilled(void) const;
 };
