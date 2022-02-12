@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:07:11 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:52:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:46:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 Contact::Contact(void) {}
 
 Contact::Contact(
-	std::string firstName,
-	std::string lastName,
-	std::string nickname,
-	std::string phoneNumber,
-	std::string darkestSecret) :
+	std::string const &firstName,
+	std::string const &lastName,
+	std::string const &nickname,
+	std::string const &phoneNumber,
+	std::string const &darkestSecret) :
 		_firstName(firstName),
 		_lastName(lastName),
 		_nickname(nickname),
@@ -65,27 +65,27 @@ std::string	Contact::getDarkestSecret() const
 	return this->_darkestSecret;
 }
 
-void	Contact::setFirstName(std::string firstName)
+void	Contact::setFirstName(std::string const &firstName)
 {
 	this->_firstName = firstName;
 }
 
-void	Contact::setLastName(std::string lastName)
+void	Contact::setLastName(std::string const &lastName)
 {
 	this->_lastName = lastName;
 }
 
-void	Contact::setNickname(std::string nickname)
+void	Contact::setNickname(std::string const &nickname)
 {
 	this->_nickname = nickname;
 }
 
-void	Contact::setPhoneNumber(std::string phoneNumber)
+void	Contact::setPhoneNumber(std::string const &phoneNumber)
 {
 	this->_phoneNumber = phoneNumber;
 }
 
-void	Contact::setDarkestSecret(std::string darkestSecret)
+void	Contact::setDarkestSecret(std::string const &darkestSecret)
 {
 	this->_darkestSecret = darkestSecret;
 }
