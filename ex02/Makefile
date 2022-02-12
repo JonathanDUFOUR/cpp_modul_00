@@ -6,56 +6,56 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 01:50:24 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/12 19:55:49 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/12 20:08:49 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CXX				=	c++ -c
-LINK			=	c++
-MKDIR			=	mkdir -p
-RM				=	rm -rf
+CXX			=	c++ -c
+LINK		=	c++
+MKDIR		=	mkdir -p
+RM			=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME			=	tests.out
+NAME		=	tests.out
 
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR			=	srcs/
-OBJ_DIR			=	objs/
-PRV_DIR			=	private/
+SRC_DIR		=	srcs/
+OBJ_DIR		=	objs/
+PRV_DIR		=	private/
 
 ######################################
 #            SOURCE FILES            #
 ######################################
-SRC				=	\
-					${addprefix class/,	\
-						Account.cpp		\
-					}					\
-					tests.cpp
+SRC			=	\
+				${addprefix class/,	\
+					Account.cpp		\
+				}					\
+				tests.cpp
 
 ######################################
 #            OBJECT FILES            #
 ######################################
-OBJ				=	${SRC:.cpp=.o}
-OBJ				:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			=	${SRC:.cpp=.o}
+OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
 
-DEP				=	${OBJ:.o=.d}
+DEP			=	${OBJ:.o=.d}
 
 #######################################
 #                FLAGS                #
 #######################################
-CPPFLAGS		=	-Wall -Wextra -Werror
-CPPFLAGS		+=	-std=c++98
-CPPFLAGS		+=	-MMD -MP
-CPPFLAGS		+=	-I${PRV_DIR}
+CPPFLAGS	=	-Wall -Wextra -Werror
+CPPFLAGS	+=	-std=c++98
+CPPFLAGS	+=	-MMD -MP
+CPPFLAGS	+=	-I${PRV_DIR}
 
-LDFLAGS			=	
+LDFLAGS		=	
 
 ifeq (${DEBUG}, 1)
 	CPPFLAGS	+=	-g
