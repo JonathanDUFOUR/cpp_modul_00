@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 03:52:34 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/13 21:25:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,8 +138,8 @@ std::string	PhoneBook::truncate(std::string str, std::size_t width)
 {
 	if (str.length() > width)
 	{
-		str[9] = '.';
-		return str.substr(0, 10);
+		str[WIDTH - 1] = '.';
+		return str.substr(0, WIDTH);
 	}
 	return str;
 }
