@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:07:11 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 02:46:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:25:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ Contact::Contact(
 		_nickname(nickname),
 		_phoneNumber(phoneNumber),
 		_darkestSecret(darkestSecret)
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating Contact"
+		<< " (" << this->_firstName << ")"
+		<< " (" << this->_lastName << ")"
+		<< " (" << this->_nickname << ")"
+		<< " (" << this->_phoneNumber << ")"
+		<< " (" << this->_darkestSecret << ")"
+		<< std::endl;
+}
+
+Contact::Contact(Contact const &src) :
+	_firstName(src._firstName),
+	_lastName(src._lastName),
+	_nickname(src._nickname),
+	_phoneNumber(src._phoneNumber),
+	_darkestSecret(src._darkestSecret)
 {
 	if (DEBUG)
 		std::cout

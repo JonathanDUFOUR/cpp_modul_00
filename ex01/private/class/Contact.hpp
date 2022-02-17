@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 02:53:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:26:21 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ public:
 		std::string const &nickname = std::string(""),
 		std::string const &phoneNumber = std::string(""),
 		std::string const &darkestSecret = std::string(""));
+	Contact(Contact const &src);
 
 	// Destructors
 	~Contact(void);
