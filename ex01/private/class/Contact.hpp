@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:08:09 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/12 18:46:35 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 02:53:46 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define CLASSCONTACT_HPP
 
 # include <iostream>
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 class Contact
 {
@@ -27,29 +31,28 @@ private:
 
 public:
 	// Constructors
-	Contact();
 	Contact(
-		std::string const &firstName,
-		std::string const &lastName,
-		std::string const &nickname,
-		std::string const &phoneNumber,
-		std::string const &darkestSecret);
+		std::string const &firstName = std::string(""),
+		std::string const &lastName = std::string(""),
+		std::string const &nickname = std::string(""),
+		std::string const &phoneNumber = std::string(""),
+		std::string const &darkestSecret = std::string(""));
 
 	// Destructors
-	~Contact();
+	~Contact(void);
 
 	// Accessors
-	std::string	getFirstName(void) const;
-	std::string	getLastName(void) const;
-	std::string	getNickname(void) const;
-	std::string	getPhoneNumber(void) const;
-	std::string	getDarkestSecret(void) const;
+	std::string const	&getFirstName(void) const;
+	std::string const	&getLastName(void) const;
+	std::string const	&getNickname(void) const;
+	std::string const	&getPhoneNumber(void) const;
+	std::string const	&getDarkestSecret(void) const;
 
-	void		setFirstName(std::string const &firstName);
-	void		setLastName(std::string const &lastName);
-	void		setNickname(std::string const &nickname);
-	void		setPhoneNumber(std::string const &phoneNumber);
-	void		setDarkestSecret(std::string const &darkestSecret);
+	void				setFirstName(std::string const &firstName);
+	void				setLastName(std::string const &lastName);
+	void				setNickname(std::string const &nickname);
+	void				setPhoneNumber(std::string const &phoneNumber);
+	void				setDarkestSecret(std::string const &darkestSecret);
 
 	// Member functions
 	void	printFirstName(void) const;

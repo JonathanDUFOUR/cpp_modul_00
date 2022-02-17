@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 21:25:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 02:29:12 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,26 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-PhoneBook::PhoneBook(void) {}
+PhoneBook::PhoneBook(void) :
+	_contacts()
+{
+	if (DEBUG)
+		std::cout
+		<< "Creating PhoneBook"
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                                Destructors                                //
 // ************************************************************************* //
 
-PhoneBook::~PhoneBook(void) {}
+PhoneBook::~PhoneBook(void)
+{
+	if (DEBUG)
+		std::cout
+		<< "Destroying PhoneBook"
+		<< std::endl;
+}
 
 // ************************************************************************* //
 //                          Public Member Functions                          //
@@ -38,6 +51,10 @@ int	PhoneBook::addContact(void)
 	std::string	input;
 	Contact		tmp;
 
+	if (DEBUG)
+		std::cout
+		<< "Calling PhoneBook::addContact()"
+		<< std::endl;
 	std::cout << "First name: ";
 	if (!std::getline(std::cin, input))
 		return (EXIT_SUCCESS);
@@ -59,7 +76,7 @@ int	PhoneBook::addContact(void)
 		return (EXIT_SUCCESS);
 	tmp.setDarkestSecret(input);
 	if (tmp.isFilled())
-		this->contacts[i++ % 8] = tmp;
+		this->_contacts[i++ % 8] = tmp;
 	return (EXIT_SUCCESS);
 }
 
@@ -69,6 +86,10 @@ int	PhoneBook::searchContact(void)
 	std::string::const_iterator	iter;
 	int							idx;
 
+	if (DEBUG)
+		std::cout
+		<< "Calling PhoneBook::searchContact()"
+		<< std::endl;
 	idx = 0;
 	printBook();
 	std::cout << "Index: ";
@@ -78,13 +99,13 @@ int	PhoneBook::searchContact(void)
 		|| input.empty())
 		idx = -1;
 	else
-		idx = stoi(input);
-	if (idx < 0 || 7 < idx || this->contacts[idx].getFirstName().empty())
+		idx = atoi(input.c_str());
+	if (idx < 0 || 7 < idx || this->_contacts[idx].getFirstName().empty())
 	{
 		std::cerr << RED << "Error 404" << RESET << std::endl;
 		return EXIT_SUCCESS;
 	}
-	this->contacts[idx].print();
+	this->_contacts[idx].print();
 	return EXIT_SUCCESS;
 }
 
@@ -92,27 +113,15 @@ int	PhoneBook::searchContact(void)
 //                          Private Member Functions                          //
 // ************************************************************************** //
 
-int		PhoneBook::stoi(std::string str)
-{
-	std::string::const_iterator	iter = str.begin();
-	int							output;
-	int							sign;
-
-	output = 0;
-	sign = 1;
-	for (iter = str.begin() ; std::isspace(*iter) ; ++iter);
-	if (*iter == '-' || *iter == '+')
-		sign = (-(*iter++ == '-') | 1);
-	for ( ; std::isdigit(*iter) ; ++iter)
-		output = output * 10 + *iter - '0';
-	return output * sign;
-}
-
 void	PhoneBook::printBook(void)
 {
 	Contact	curr;
 	int		i;
 
+	if (DEBUG)
+		std::cout
+		<< "Calling PhoneBook::printBook()"
+		<< std::endl;
 	std::cout << std::setw(WIDTH) << "Index" << "|";
 	std::cout << std::setw(WIDTH) << "First Name" << "|";
 	std::cout << std::setw(WIDTH) << "Last Name" << "|";
@@ -122,11 +131,11 @@ void	PhoneBook::printBook(void)
 	std::cout << std::setfill(' ');
 	for (i = 0 ; i < 8 ; ++i)
 	{
-		if (!this->contacts[i].isFilled())
+		if (!this->_contacts[i].isFilled())
 			break ;
-		curr.setFirstName(truncate(this->contacts[i].getFirstName(), WIDTH));
-		curr.setLastName(truncate(this->contacts[i].getLastName(), WIDTH));
-		curr.setNickname(truncate(this->contacts[i].getNickname(), WIDTH));
+		curr.setFirstName(truncate(this->_contacts[i].getFirstName(), WIDTH));
+		curr.setLastName(truncate(this->_contacts[i].getLastName(), WIDTH));
+		curr.setNickname(truncate(this->_contacts[i].getNickname(), WIDTH));
 		std::cout << std::setw(WIDTH) << i << "|";
 		std::cout << std::setw(WIDTH) << curr.getFirstName() << "|";
 		std::cout << std::setw(WIDTH) << curr.getLastName() << "|";
@@ -136,6 +145,10 @@ void	PhoneBook::printBook(void)
 
 std::string	PhoneBook::truncate(std::string str, std::size_t width)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling PhoneBook::truncate()"
+		<< std::endl;
 	if (str.length() > width)
 	{
 		str[WIDTH - 1] = '.';

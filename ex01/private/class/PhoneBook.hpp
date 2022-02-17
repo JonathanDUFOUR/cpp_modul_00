@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:40:56 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/13 21:26:52 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/17 02:27:48 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 
 # include "class/Contact.hpp"
 
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
+
 # ifndef WIDTH
-#  define WIDTH	15
+#  define WIDTH	10
 # endif
 
 class PhoneBook
 {
 private:
-	Contact contacts[8];
+	Contact _contacts[8];
 
 	// Member functions
-	int			stoi(std::string str);
-
 	void		printBook(void);
 
 	std::string	truncate(std::string str, std::size_t width);
