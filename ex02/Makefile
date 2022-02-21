@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 01:50:24 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/12 20:08:49 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/21 11:36:42 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ DEP			=	${OBJ:.o=.d}
 #                FLAGS                #
 #######################################
 CPPFLAGS	=	-Wall -Wextra -Werror
+CPPFLAGS	+=	-Wshadow
 CPPFLAGS	+=	-std=c++98
 CPPFLAGS	+=	-MMD -MP
 CPPFLAGS	+=	-I${PRV_DIR}
