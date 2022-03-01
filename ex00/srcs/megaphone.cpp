@@ -6,29 +6,22 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 18:48:52 by jodufour          #+#    #+#             */
-/*   Updated: 2022/01/05 07:08:53 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:14:37 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
 
-static std::string	str_toupper(std::string str)
-{
-	std::string::iterator	iter;
-
-	for (iter = str.begin() ; *iter ; ++iter)
-		*iter = toupper(*iter);
-	return str;
-}
-
 int main(int const ac, char const **av)
 {
-	int	i;
+	uint	idx0;
+	uint	idx1;
 
 	if (ac > 1)
-		for (i = 1 ; av[i] ; ++i)
-			std::cout << str_toupper(std::string(av[i]));
+		for (idx0 = 1 ; av[idx0] ; ++idx0)
+			for (idx1 = 0 ; av[idx0][idx1] ; ++idx1)
+				std::cout << static_cast<char>(std::toupper(av[idx0][idx1]));
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	std::cout << std::endl;
