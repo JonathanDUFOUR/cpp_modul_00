@@ -6,12 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 18:48:52 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/01 18:14:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:32:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
+
+typedef unsigned int	uint;
 
 int main(int const ac, char const **av)
 {

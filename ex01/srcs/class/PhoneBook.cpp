@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/17 02:29:12 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:10:06 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iomanip>
 #include "colors.hpp"
 #include "class/PhoneBook.hpp"
+
+typedef unsigned int	uint;
 
 // ************************************************************************** //
 //                                Constructors                                //
@@ -47,9 +49,9 @@ PhoneBook::~PhoneBook(void)
 
 int	PhoneBook::addContact(void)
 {
-	static int	i = 0;
 	std::string	input;
 	Contact		tmp;
+	static uint	idx(0);
 
 	if (DEBUG)
 		std::cout
@@ -76,31 +78,29 @@ int	PhoneBook::addContact(void)
 		return (EXIT_SUCCESS);
 	tmp.setDarkestSecret(input);
 	if (tmp.isFilled())
-		this->_contacts[i++ % 8] = tmp;
+		this->_contacts[idx++ % 8] = tmp;
 	return (EXIT_SUCCESS);
 }
 
 int	PhoneBook::searchContact(void)
 {
-	std::string					input;
-	std::string::const_iterator	iter;
-	int							idx;
+	std::string	input;
+	uint		idx;
 
 	if (DEBUG)
 		std::cout
 		<< "Calling PhoneBook::searchContact()"
 		<< std::endl;
-	idx = 0;
 	printBook();
 	std::cout << "Index: ";
 	if (!std::getline(std::cin, input))
 		return (EXIT_SUCCESS);
 	if (input.find_first_not_of("0123456789-+\f\t\n\r\v ") != input.npos
 		|| input.empty())
-		idx = -1;
+		idx = 8;
 	else
-		idx = atoi(input.c_str());
-	if (idx < 0 || 7 < idx || this->_contacts[idx].getFirstName().empty())
+		idx = std::strtoul(input.c_str(), NULL, 10);
+	if (idx > 7 || this->_contacts[idx].getFirstName().empty())
 	{
 		std::cerr << RED << "Error 404" << RESET << std::endl;
 		return EXIT_SUCCESS;
@@ -116,30 +116,31 @@ int	PhoneBook::searchContact(void)
 void	PhoneBook::printBook(void)
 {
 	Contact	curr;
-	int		i;
+	uint	idx(0);
 
 	if (DEBUG)
 		std::cout
 		<< "Calling PhoneBook::printBook()"
 		<< std::endl;
-	std::cout << std::setw(WIDTH) << "Index" << "|";
-	std::cout << std::setw(WIDTH) << "First Name" << "|";
-	std::cout << std::setw(WIDTH) << "Last Name" << "|";
-	std::cout << std::setw(WIDTH) << "Nickname" << std::endl;
-	std::cout << std::setfill('-');
-	std::cout << std::setw(4 * (WIDTH + 1)) << "" << std::endl;
+	std::cout
+	<< std::setw(WIDTH) << "Index" << "|"
+	<< std::setw(WIDTH) << "First Name" << "|"
+	<< std::setw(WIDTH) << "Last Name" << "|"
+	<< std::setw(WIDTH) << "Nickname" << std::endl
+	<< std::setfill('-') << std::setw(4 * (WIDTH + 1)) << "" << std::endl;
 	std::cout << std::setfill(' ');
-	for (i = 0 ; i < 8 ; ++i)
+	for ( ; idx < 8 ; ++idx)
 	{
-		if (!this->_contacts[i].isFilled())
+		if (!this->_contacts[idx].isFilled())
 			break ;
-		curr.setFirstName(truncate(this->_contacts[i].getFirstName(), WIDTH));
-		curr.setLastName(truncate(this->_contacts[i].getLastName(), WIDTH));
-		curr.setNickname(truncate(this->_contacts[i].getNickname(), WIDTH));
-		std::cout << std::setw(WIDTH) << i << "|";
-		std::cout << std::setw(WIDTH) << curr.getFirstName() << "|";
-		std::cout << std::setw(WIDTH) << curr.getLastName() << "|";
-		std::cout << std::setw(WIDTH) << curr.getNickname() << std::endl;
+		curr.setFirstName(truncate(this->_contacts[idx].getFirstName(), WIDTH));
+		curr.setLastName(truncate(this->_contacts[idx].getLastName(), WIDTH));
+		curr.setNickname(truncate(this->_contacts[idx].getNickname(), WIDTH));
+		std::cout
+		<< std::setw(WIDTH) << idx << "|"
+		<< std::setw(WIDTH) << curr.getFirstName() << "|"
+		<< std::setw(WIDTH) << curr.getLastName() << "|"
+		<< std::setw(WIDTH) << curr.getNickname() << std::endl;
 	}
 }
 
