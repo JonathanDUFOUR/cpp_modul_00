@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 02:13:27 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/12 19:05:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:47:26 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void	Account::displayAccountsInfos(void)
 // ************************************************************************** //
 //                             Private Attributes                             //
 // ************************************************************************** //
-int	Account::_nbAccounts = 0;
-int	Account::_totalAmount = 0;
-int	Account::_totalNbDeposits = 0;
-int	Account::_totalNbWithdrawals = 0;
+int	Account::_nbAccounts(0);
+int	Account::_totalAmount(0);
+int	Account::_totalNbDeposits(0);
+int	Account::_totalNbWithdrawals(0);
