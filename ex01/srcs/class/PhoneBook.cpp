@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 17:10:06 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 21:16:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	PhoneBook::addContact(void)
 {
 	std::string	input;
 	Contact		tmp;
-	static uint	idx(0);
+	static uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
@@ -116,7 +116,7 @@ int	PhoneBook::searchContact(void)
 void	PhoneBook::printBook(void)
 {
 	Contact	curr;
-	uint	idx(0);
+	uint	idx(0U);
 
 	if (DEBUG)
 		std::cout
@@ -129,7 +129,7 @@ void	PhoneBook::printBook(void)
 	<< std::setw(WIDTH) << "Nickname" << std::endl
 	<< std::setfill('-') << std::setw(4 * (WIDTH + 1)) << "" << std::endl;
 	std::cout << std::setfill(' ');
-	for ( ; idx < 8 ; ++idx)
+	for ( ; idx < 8U ; ++idx)
 	{
 		if (!this->_contacts[idx].isFilled())
 			break ;
