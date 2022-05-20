@@ -6,22 +6,22 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 19:31:37 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/21 11:36:30 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/19 21:49:07 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CXX			=	c++ -c
-LINK		=	c++
+CXX			=	clang++
+LINK		=	clang++
 MKDIR		=	mkdir -p
 RM			=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME		=	phone_book
+NAME		=	phone_book.out
 
 #######################################
 #             DIRECTORIES             #
@@ -51,24 +51,27 @@ DEP			=	${OBJ:.o=.d}
 #######################################
 #                FLAGS                #
 #######################################
-CPPFLAGS	=	-Wall -Wextra -Werror
-CPPFLAGS	+=	-Wshadow
-CPPFLAGS	+=	-MMD -MP
-CPPFLAGS	+=	-std=c++98
-CPPFLAGS	+=	-I${PRV_DIR}
+CXXFLAGS	=	-c
+CXXFLAGS	+=	-Wall -Wextra -Werror
+CXXFLAGS	+=	-Wshadow
+CXXFLAGS	+=	-MMD -MP
+CXXFLAGS	+=	-std=c++98
+CXXFLAGS	+=	-I${PRV_DIR}
 
 LDFLAGS		=	
 
 ifeq (${DEBUG}, 1)
-	CPPFLAGS	+=	-g
-	CPPFLAGS	+=	-DDEBUG=1
+	CXXFLAGS	+=	-g
+	CXXFLAGS	+=	-DDEBUG=1
 endif
 
 #######################################
 #                RULES                #
 #######################################
+.PHONY:	all clean fclean re fre
+
 ${NAME}: ${OBJ}
-	${LINK} ${OBJ} ${LDFLAGS} ${OUTPUT_OPTION}
+	${LINK} $^ ${LDFLAGS} ${OUTPUT_OPTION}
 
 all: ${NAME}
 
@@ -76,7 +79,7 @@ all: ${NAME}
 
 ${OBJ_DIR}%.o: ${SRC_DIR}%.cpp
 	@${MKDIR} ${@D}
-	${CXX} ${CPPFLAGS} $< ${OUTPUT_OPTION}
+	${CXX} ${CXXFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
 	${RM} ${OBJ_DIR} ${NAME} vgcore.*
@@ -88,6 +91,4 @@ re: clean all
 
 fre: fclean all
 
--include /home/jodufour/Templates/mk_files/coffee.mk
-
-.PHONY:	all clean fclean re fre
+-include ${HOME}/Templates/mk_files/coffee.mk
