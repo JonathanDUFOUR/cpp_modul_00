@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:41:16 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 21:16:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:40:49 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	PhoneBook::searchContact(void)
 		idx = std::strtoul(input.c_str(), NULL, 10);
 	if (idx > 7 || this->_contacts[idx].getFirstName().empty())
 	{
-		std::cerr << RED << "Error 404" << RESET << std::endl;
+		std::cerr << RED_FG << "Error 404" << RESET << std::endl;
 		return EXIT_SUCCESS;
 	}
 	this->_contacts[idx].print();
